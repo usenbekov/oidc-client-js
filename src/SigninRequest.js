@@ -50,13 +50,13 @@ export class SigninRequest {
             code_verifier: code, 
             request_type, response_mode,
             client_secret, scope, extraTokenParams, skipUserInfo });
-
-        url = UrlUtility.addQueryParam(url, "client_id", client_id);
-        url = UrlUtility.addQueryParam(url, "redirect_uri", redirect_uri);
+        
         url = UrlUtility.addQueryParam(url, "response_type", response_type);
         url = UrlUtility.addQueryParam(url, "scope", scope);
-
+        url = UrlUtility.addQueryParam(url, "client_id", client_id);
         url = UrlUtility.addQueryParam(url, "state", this.state.id);
+        url = UrlUtility.addQueryParam(url, "redirect_uri", redirect_uri);
+        
         if (oidc) {
             url = UrlUtility.addQueryParam(url, "nonce", this.state.nonce);
         }
